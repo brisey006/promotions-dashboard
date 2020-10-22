@@ -1,0 +1,96 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                  <!--================================-->
+                  <!-- Breadcrumb Start -->
+                  <!--================================-->
+                  <div class="pageheader pd-t-25 pd-b-15">
+                     <div class="d-flex justify-content-between">
+                        <div class="clearfix">
+                           <div class="pd-t-5 pd-b-5">
+                              <h1 class="pd-0 mg-0 tx-20 tx-dark">Pages</h1>
+                           </div>
+                           <div class="breadcrumb pd-0 mg-0">
+                              <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                              <span class="breadcrumb-item active">Pages</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--/ Breadcrumb End -->
+                  <!--================================-->
+                  <!-- Pages Start -->
+                  <!--================================-->
+                  <div class="d-flex flex-wrap justify-content-between mg-b-30">
+                     <div class="mg-t-20">
+                         <!-- View toggle -->
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                           <label class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Grid View">
+                            <a href="#"><span data-feather="filter" class="wd-16"></span></a>
+                           </label>
+                        </div>
+                        <!-- / View toggle -->
+                        <a href="/pages/create" class="btn btn-primary"><span data-feather="plus" class="wd-16 mr-2"></span>Create Page</a>
+                     </div>
+                     <input type="text" class="form-control mg-t-20" placeholder="Search..." style="max-width: 200px;">
+                  </div>
+                  
+                  <div class="table-responsive">
+                        <table class="table table-separated">
+                           <thead>
+                              <tr>
+                                 <th>#</th>
+                                 <th>Page</th>
+                                 <th>Status</th>
+                                 <th>Promotions</th>
+                                 <th class="text-right">Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {{#each data.docs}}
+                              <tr>
+                                 <th scope="row">{{this.position}}</th>
+                                 <td>
+                                    <div class="d-flex">
+                                       {{#if this.displayImage}}
+                                       <img class="wd-35 rounded-circle img-fluid" src="/assets/images/users-face/1.png" alt="">
+                                       {{else}}
+                                       <i data-feather="file-text" class="wd-24 mr-2"></i>
+                                       {{/if}}
+                                       <div class="mg-l-10">
+                                          <p class="lh-1 mg-0"><a href="/pages/{{this.slug}}">{{this.name}}</a></p>
+                                          <small class="tx-gray-500">{{shorten this.description limit=100}}</small>
+                                       </div>
+                                    </div>
+                                 </td>
+                                 <td>
+                                    {{#if this.approved}}
+                                    <span class="badge badge-outline-success">Approved</span>
+                                    {{else}}
+                                    <span class="badge badge-outline-danger">Pending Approval</span>
+                                    {{/if}}
+                                 </td>
+                                 <td>0</td>
+                                 <td class="text-right table-actions">
+                                    <a class="table-action  mg-r-10" href="#"><i class="fa fa-pencil"></i></a>
+                                    <a class="table-action  mg-r-10" href="#"><i class="fa fa-trash"></i></a>
+                                    <span class="dropdown-toggle " data-toggle="dropdown" style="cursor: pointer;"></span>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                       <a class="dropdown-item" href="#"><i data-feather="toggle-left" class="wd-16 mr-2"></i> Approve</a>
+                                    </div>
+                                 </td>
+                              </tr>
+                              {{/each}}
+                           </tbody>
+                        </table>
+                        {{>pagination}}
+                     </div>
+                  <!--/ Pages  End-->
+                  
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

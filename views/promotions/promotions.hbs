@@ -1,0 +1,144 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+                <div id="main-wrapper">
+                    <!--================================-->
+                    <!-- Breadcrumb Start -->
+                    <!--================================-->
+                    <div class="pageheader pd-t-25 pd-b-15">
+                        <div class="d-flex justify-content-between">
+                            <div class="clearfix">
+                            <div class="pd-t-5 pd-b-5">
+                                <h1 class="pd-0 mg-0 tx-20 tx-dark">{{pageTitle}}</h1>
+                            </div>
+                            <div class="breadcrumb pd-0 mg-0">
+                                <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                                <span class="breadcrumb-item active">Promotions</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Breadcrumb End -->
+
+                    {{#if deletedPromotion}}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{deletedPromotion.title}}</strong> promotion was successfully deleted.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ti-close tx-16"></i></span>
+                        </button>
+                    </div>
+                    {{/if}}
+
+                    {{#if approvedPromotion}}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{approvedPromotion.title}}</strong> promotion was approved.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ti-close tx-16"></i></span>
+                        </button>
+                    </div>
+                    {{/if}}
+                    
+                    {{#if disapprovedPromotion}}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{disapprovedPromotion.title}}</strong> promotion was disapproved.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><i class="ti-close tx-16"></i></span>
+                        </button>
+                    </div>
+                    {{/if}}
+
+                    <!--================================-->
+                    <!-- Pages Start -->
+                    <!--================================-->
+                    <div class="d-flex flex-wrap justify-content-between mg-b-30">
+                        <div class="mg-t-20">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Filter">
+                                    <a href="#"><span data-feather="filter" class="wd-16"></span></a>
+                                </label>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control mg-t-20" placeholder="Search..." style="max-width: 200px;">
+                    </div>
+                    
+                    <div class="table-responsive">
+                            <table class="table table-separated">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Promotions</th>
+                                    <th>Page</th>
+                                    <th>Status</th>
+                                    <th>Views</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each data.docs}}
+                                <tr>
+                                    <th scope="row">{{this.position}}</th>
+                                    <td>
+                                        <div class="d-flex">
+                                        {{#if this.displayImage}}
+                                        <img class="wd-35 rounded-circle img-fluid" src="{{this.displayImage.thumbnail}}" alt="">
+                                        {{else}}
+                                        <i data-feather="file-text" class="wd-35 mr-2"></i>
+                                        {{/if}}
+                                        <div class="mg-l-10">
+                                            <p class="lh-1 mg-0"><a href="/promotions/{{this.slug}}">{{this.title}}</a></p>
+                                            <small class="tx-gray-500">{{shorten this.description limit=100}}</small>
+                                        </div>
+                                        </div>
+                                    </td>
+                                    <th><a href="/pages/{{this.page.slug}}">{{this.page.name}}</a></th>
+                                    <td>
+                                        {{#if this.approved}}
+                                        <span class="badge badge-outline-success">Approved</span>
+                                        {{else}}
+                                        <span class="badge badge-outline-danger">Pending Approval</span>
+                                        {{/if}}
+                                    </td>
+                                    <td>{{this.hits}}</td>
+                                    <td class="text-right table-actions">
+                                        <a class="table-action  mg-r-10" href="#"><i class="fa fa-pencil"></i></a>
+                                        <a class="table-action  mg-r-10" href="#delete-{{this._id}}" data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                        <span class="dropdown-toggle " data-toggle="dropdown" style="cursor: pointer;"></span>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            {{#if this.approved}}
+                                            <a class="dropdown-item" href="/promotions/{{this.slug}}/disapprove"><i data-feather="toggle-right" class="wd-16 mr-2"></i> Disapprove</a>
+                                            {{else}}
+                                            <a class="dropdown-item" href="/promotions/{{this.slug}}/approve"><i data-feather="toggle-left" class="wd-16 mr-2"></i> Approve</a>
+                                            {{/if}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="delete-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="ModalComponents" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="ModalComponents">Delete Currency?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">Are you sure you want to delete <b>{{this.name}}</b>?</div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <a href="/promotions/delete/{{this.slug}}" class="btn btn-danger">Yes</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </tbody>
+                            </table>
+                            {{>pagination}}
+                        </div>
+                    <!--/ Pages  End-->
+                    
+                </div>
+                <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

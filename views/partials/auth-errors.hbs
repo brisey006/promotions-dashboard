@@ -1,0 +1,7 @@
+                            {{#each authErrors}}
+                            {{#if this.message}}
+                            <div class="alert alert-danger" role="alert">{{this.message}}</div>
+                            {{else}}
+                            <div class="alert alert-danger" role="alert">{{this}}</div>
+                            {{/if}}
+                            {{/each}}

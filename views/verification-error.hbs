@@ -1,0 +1,30 @@
+                    {{#if linkExpired}}
+                    <div class="login-right-wrap wd-300">
+                        <div class="lock-user">
+                           <h4 class="mg-b-30 tx-semibold">Link expired.</h4>
+                           <p>Enter your email to request a new link.</p>
+                        </div>
+                        
+                        <form method="POST" action="/request-verification-link">
+                            <div class="form-group">
+                                <input class="form-control" name="email" value="{{formFields.email}}" type="email" placeholder="Email">
+                            </div>
+                            {{>auth-errors}}
+                            <div class="form-group mb-0">
+                                <button class="btn btn-brand btn-block" type="submit">Request</button>
+                            </div>
+                        </form>
+                        <div class="tx-gray-500 mg-t-10">Already verified? <a href="/login" class="tx-semibold">Sign in</a></div>
+                    </div>
+                    {{else}}
+                    <div class="login-right-wrap wd-300">
+                        <div class="lock-user">
+                           <h4 class="mg-b-30 tx-semibold">Account alread verified.</h4>
+                        </div>
+                        <p>Your account is already verified. Go to sign in page and continue to your account.</p>
+                        <div class="form-group mb-0">
+                            <br>
+                            <a class="btn btn-brand btn-block" href="/login">Sign in</a>
+                        </div>
+                    </div>
+                    {{/if}}

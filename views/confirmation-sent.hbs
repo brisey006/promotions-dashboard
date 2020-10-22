@@ -1,0 +1,19 @@
+                    <div class="login-right-wrap wd-300">
+                        <div class="lock-user">
+                            {{#if resent}}
+                            <h4 class="mg-b-30 tx-semibold">Link resent successfully.</h4>
+                            {{else}}
+                            <h4 class="mg-b-30 tx-semibold">Confirmation sent.</h4>
+                            {{/if}}
+                        </div>
+                        <p>A confirmation link has been emailed to you. Please check your email and confirm your email address to complete the registration process.</p>
+                        
+                        <!-- /Form -->
+                        <div class="tx-gray-500 mg-t-10">Didn't receive the email?</div>
+                        <div class="form-group mb-0">
+                            <br>
+                            <a class="btn btn-brand btn-block" href="/resend-verification/{{userId}}">Resend Email</a>
+                        </div>
+
+                        <div class="tx-gray-500 mg-t-10">Already verified? <a href="/login" class="tx-semibold">Sign in</a></div>
+                    </div>

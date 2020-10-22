@@ -1,0 +1,133 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner pd-0-force">
+               <div class="bg-white mg-b-30">
+                  <div class="media col-md-10 col-lg-8 col-xl-7 pd-30 mx-auto">
+                    {{#if user.displayImage}}
+                    <img src="{{user.displayImage.thumbnail}}?rand={{random}}" alt="" class="d-block rounded-circle hidden-xs">
+                    {{else}}
+                    <img src="/assets/images/default-avatar.png" alt="" class="d-block rounded-circle hidden-xs">
+                    {{/if}}
+                     <div class="media-body ml-0 ml-md-5">
+                        <h4 class="tx-semibold">{{user.firstName}} {{user.lastName}}</h4>
+                        </p>
+                        <div class="d-flex mg-b-25">
+                           <a href="/change-display-picture" class="btn btn-default">Change display image</a>
+                           <button class="btn btn-primary mg-l-10">Edit Profile</button>
+                        </div>
+                        <a href="" class="d-inline-block ">
+                        <strong>2</strong>
+                        <span>Pages</span>
+                        </a>
+                        <a href="" class="d-inline-block  ml-3">
+                        <strong>5</strong>
+                        <span >Promotions</span>
+                        </a>
+                     </div>
+                  </div>
+                  <hr class="m-0">
+               </div>
+               <div class="row clearfix mg-x-15-force">
+                  <div class="col">
+                     <!-- Info -->
+                     <div class="card mg-b-30">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                           <h6 class="tx-16 tx-semibold mg-b-0">Personal Information</h6>
+                           <nav class="nav nav-with-icon tx-13">
+                              <a href="" class="nav-link pd-0"><span data-feather="plus" class="wd-16"></span> Add New</a>
+                           </nav>
+                        </div>
+                        <!-- card-header -->
+                        <div class="card-body">
+                           <h6 class="my-3">Personal</h6>
+                           <div class="row mb-2">
+                              <div class="col-md-3 tx-gray-500 tx-semibold">First Name:</div>
+                              <div class="col-md-9">{{user.firstName}}</div>
+                           </div>
+                           <div class="row mb-2">
+                              <div class="col-md-3 tx-gray-500 tx-semibold">Last Name:</div>
+                              <div class="col-md-9">{{user.lastName}}</div>
+                           </div>
+                           <div class="row mb-2">
+                              <div class="col-md-3 tx-gray-500 tx-semibold">Birthday:</div>
+                              <div class="col-md-9">May 3, 1995</div>
+                           </div>
+                           <h6 class="my-3">Contacts</h6>
+                           <div class="row mb-2">
+                              <div class="col-md-3 tx-gray-500 tx-semibold">Email:</div>
+                              <div class="col-md-9">{{user.email}}</div>
+                           </div>
+                           <div class="row mb-2">
+                              <div class="col-md-3 tx-gray-500 tx-semibold">Phone:</div>
+                              <div class="col-md-9"> +0 (123) 456 7891 </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- / Info -->
+                     <div class="card mg-b-30">
+                        <div class="card-header d-flex align-items-center justify-content-between">
+                           <h6 class="tx-16 tx-semibold mg-b-0">Pages</h6>
+                        </div>
+                        <!-- card-header -->
+                        <div class="card-body pd-25">
+                           <div class="media d-block d-flex mg-b-30">
+                              <div class="wd-60 ht-60 bg-primary rounded d-flex align-items-center justify-content-center hidden-xs">
+                                 <span data-feather="briefcase" class="wd-30 ht-30 tx-gray-200"></span>
+                              </div>
+                              <div class="media-body pd-l-0 pd-sm-l-20">
+                                 <h5 class="tx-18 mg-b-5">Sr. Professor</h5>
+                                 <p class="mg-b-3">B. J. Arts College, Ahmedabad, India</p>
+                                 <span class="d-block tx-13 tx-gray-500">December 2016 - Present</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                           <div class="media d-block d-flex">
+                              <div class="wd-60 ht-60 bg-danger rounded d-flex align-items-center justify-content-center hidden-xs">
+                                 <span data-feather="briefcase" class="wd-30 ht-30 tx-gray-200"></span>
+                              </div>
+                              <div class="media-body pd-l-0 pd-sm-l-20">
+                                 <h5 class="tx-18 mg-b-5">Jr. Professor</h5>
+                                 <p class="mg-b-3"><span class="tx-medium tx-color-01"> B. J. Arts College</span>, Ahmedabad, India</p>
+                                 <span class="d-block tx-13 tx-gray-500">December 2014 - 2016</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                        </div>
+                        <div class="card-footer bg-transparent">
+                           <nav class="nav nav-with-icon tx-13">
+                              <a href="" class="nav-link pd-0"><span data-feather="plus" class="wd-16"></span> Add New Experience</a>
+                           </nav>
+                        </div>
+                        <!-- card-footer -->
+                     </div>
+                  </div>
+                  <div class="col-xl-4">
+                     <!-- Skills -->
+                     <div class="card mg-b-30">
+                        <div class="card-header tx-16 tx-semibold">Skills</div>
+                        <div class="card-body">
+                           <div class="mb-1">HTML - <small >80%</small></div>
+                           <div class="progress mb-3" style="height: 4px;">
+                              <div class="progress-bar bg-secondary" style="width: 80%;"></div>
+                           </div>
+                           <div class="mb-1">CSS - <small >95%</small></div>
+                           <div class="progress mb-3" style="height: 4px;">
+                              <div class="progress-bar bg-success" style="width: 95%;"></div>
+                           </div>
+                           <div class="mb-1">Javascript - <small >90%</small></div>
+                           <div class="progress mb-3" style="height: 4px;">
+                              <div class="progress-bar bg-warning" style="width: 90%;"></div>
+                           </div>
+                           <div class="mb-1">UI/UX - <small >80%</small></div>
+                           <div class="progress" style="height: 4px;">
+                              <div class="progress-bar bg-danger" style="width: 80%;"></div>
+                           </div>
+                        </div>
+                        <a href="" class="card-footer d-block text-center  small tx-semibold">SHOW ALL SKILLS</a>
+                     </div>
+                     <!-- / Skills -->
+                  </div>
+               </div>
+            </div>
+            <!--/ Page Inner End -->

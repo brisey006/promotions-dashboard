@@ -1,0 +1,79 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                  <!--================================-->
+                  <!-- Breadcrumb Start -->
+                  <!--================================-->
+                  <div class="pageheader pd-t-25 pd-b-15">
+                     <div class="d-flex justify-content-between">
+                        <div class="clearfix">
+                           <div class="pd-t-5 pd-b-5">
+                              <h1 class="pd-0 mg-0 tx-20 tx-dark">Create Page</h1>
+                           </div>
+                           <div class="breadcrumb pd-0 mg-0">
+                              <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                              <a class="breadcrumb-item" href="/pages">Pages</a>
+                              <span class="breadcrumb-item active">New</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--/ Breadcrumb End -->
+                  <!--================================-->
+                  <!-- Create Page Start -->
+                  <!--================================-->
+                <div class="row row-xs clearfix">
+                     <!--================================-->
+                     <!-- Basic Form Start -->
+                     <!--================================-->
+                     <div class="col-md-12 col-lg-6">
+                   <div class="card mg-b-30">
+                           <div class="card-header">
+                              <div class="d-flex justify-content-between align-items-center">
+                                 <div>
+                                    <h6 class="card-header-title tx-13 mb-0">Fill in the form</h6>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-body">
+                              <form method="POST" class="{{validationStatus}}" novalidate>
+                                 <div class="mb-3">
+                                    <label for="name">Page Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{name}}" placeholder="Name" required>
+                                    {{#if nameError}}<div class="invalid-feedback">{{nameError}}</div>{{/if}}
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="email">Page Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" value="{{email}}" placeholder="Email">
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="phone">Phone number</label>
+                                    <input type="text" class="form-control input-phone-number" name="phoneNumber" id="phone" placeholder="Phone number" value="{{phone}}" required>
+                                    {{#if phoneError}}<div class="invalid-feedback">{{phoneError}}</div>{{/if}}
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="description">Page description</label>
+                                    <textarea class="form-control" name="description" id="description" cols="30" rows="3" placeholder="Page description" required>{{description}}</textarea>
+                                    {{#if descriptionError}}<div class="invalid-feedback">{{descriptionError}}</div>{{/if}}
+                                 </div>
+                                 <div class="mb-3">
+                                    <label for="address">Address</label>
+                                    <textarea class="form-control" name="address" id="address" cols="30" rows="3" placeholder="Address" required>{{address}}</textarea>
+                                    {{#if addressError}}<div class="invalid-feedback">{{addressError}}</div>{{/if}}
+                                 </div>
+                                 <button class="btn btn-primary" type="submit">Submit form</button>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                    </div>
+                  
+                  <!--/ Create Page  End-->
+                  
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

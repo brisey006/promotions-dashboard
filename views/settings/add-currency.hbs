@@ -1,0 +1,82 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                    <!--================================-->
+                    <!-- Breadcrumb Start -->
+                    <!--================================-->
+                    <div class="pageheader pd-t-25 pd-b-15">
+                        <div class="d-flex justify-content-between">
+                            <div class="clearfix">
+                            <div class="pd-t-5 pd-b-5">
+                                <h1 class="pd-0 mg-0 tx-20 tx-dark">{{pageTitle}}</h1>
+                            </div>
+                            <div class="breadcrumb pd-0 mg-0">
+                                <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                                <a class="breadcrumb-item" href="/settings">Settings</a>
+                                <a class="breadcrumb-item" href="/settings/currencies">Currencies</a>
+                                <span class="breadcrumb-item active">Add</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Breadcrumb End -->
+                    {{#if errorContainer.system}}
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="alert alert-danger" role="alert">{{errorContainer.system}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if successMessage}}
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="alert alert-success" role="alert">{{successMessage}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <!--================================-->
+                    <!-- Create Page Start -->
+                    <!--================================-->
+                    <div class="row row-xs clearfix">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="card mg-b-30">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-header-title tx-13 mb-0">Fill in the form</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" class="{{validationStatus}}" novalidate>
+                                        <div class="mb-3">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" value="{{name}}" placeholder="Name" required>
+                                            {{#if nameError}}<div class="invalid-feedback">{{nameError}}</div>{{/if}}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="acronym">Acronym</label>
+                                            <input type="text" class="form-control" id="acronym" name="acronym" value="{{acronym}}" placeholder="Acronym" required>
+                                            {{#if acronymError}}<div class="invalid-feedback">{{acronymError}}</div>{{/if}}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="symbol">Symbol</label>
+                                            <input type="text" class="form-control" id="symbol" name="symbol" value="{{symbol}}" placeholder="Symbol" required>
+                                            {{#if symbolError}}<div class="invalid-feedback">{{symbolError}}</div>{{/if}}
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <!--/ Create Page  End-->
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

@@ -1,0 +1,21 @@
+                        <span style="float: left;">Showing {{data.page}} of {{data.totalPages}} pages</span>
+                        {{#eq data.totalPages 1}}
+                        {{else}}
+                        <nav aria-label="Data Pagination">
+                          <ul class="pagination justify-content-end">
+                            {{#if data.hasPrevPage}}
+                            <li class="page-item"><a class="page-link" aria-disabled="true" href="{{currentUrl}}page={{data.prevPage}}">«</a></li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link" aria-disabled="true" href="javascript:void(0);">«</a></li>
+                            {{/if}}
+                            {{#paginate data.page total=data.totalPages}}
+                            <li class="page-item {{#eq this @root.data.page}}active{{/eq}}"><a class="page-link" href="{{@root.currentUrl}}page={{this}}">{{this}}</a></li>
+                            {{/paginate}}
+                            {{#if data.hasNextPage}}
+                            <li class="page-item"><a class="page-link" href="{{currentUrl}}page={{data.nextPage}}">»</a></li>
+                            {{else}}
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">»</a></li>
+                            {{/if}}
+                          </ul>
+                        </nav>
+                        {{/eq}}

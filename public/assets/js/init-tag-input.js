@@ -1,0 +1,1 @@
+$('#tagsField').tagsinput({ tagClass: 'badge badge-primary' });

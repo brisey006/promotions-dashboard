@@ -1,0 +1,158 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                  <!--================================-->
+                  <!-- Breadcrumb Start -->
+                  <!--================================-->
+                  <div class="pageheader pd-t-25 pd-b-15">
+                     <div class="d-flex justify-content-between">
+                        <div class="clearfix">
+                           <div class="pd-t-5 pd-b-5">
+                              <h1 class="pd-0 mg-0 tx-20 tx-dark">Users</h1>
+                           </div>
+                           <div class="breadcrumb pd-0 mg-0">
+                              <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                              <a class="breadcrumb-item" href="">Pages</a>
+                              <span class="breadcrumb-item active">Users</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--/ Breadcrumb End -->
+                  <!--================================-->
+                  <!-- Users Start -->
+                  <!--================================-->
+                  <div class="d-flex flex-wrap justify-content-between mg-b-30">
+                     <div class="mg-t-20">
+                        <a href="#addContactModal" data-toggle="modal" class="btn btn-primary"><span data-feather="plus" class="wd-16 mr-2"></span> Invite User</a>
+                     </div>
+                     <input type="text" class="form-control mg-t-20" placeholder="Search..." style="max-width: 200px;">
+                  </div>
+                  <div class="row contacts-col-view">
+                      {{#each users.docs}}
+                     <div class="col-md-6 col-xl-3">
+                        <div class="card mg-b-30">
+                           <div class="card-body tx-center">
+                              <div class="btn-group ft-right">
+                                 <div class="dropdown">
+                                    <a href="" class="" data-toggle="dropdown"><i class="ti-more"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="" class="dropdown-item"><i data-feather="info" class="wd-16 mr-2"></i>View Details</a>
+                                        <a href="" class="dropdown-item"><i data-feather="shield" class="wd-16 mr-2"></i>Make Admin</a>
+                                        <a href="" class="dropdown-item"><i data-feather="toggle-left" class="wd-16 mr-2"></i>Activate</a>
+                                        <a href="" class="dropdown-item"><i data-feather="edit" class="wd-16 mr-2"></i>Edit</a>
+                                        <a href="" class="dropdown-item"><i data-feather="trash" class="wd-16 mr-2"></i>Delete</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="contact-content">
+                                {{#if this.displayImage}}
+                                <img src="{{this.displayImage.thumbnail}}?rand={{random}}" class="rounded-circle wd-100" alt="">
+                                {{else}}
+                                <img src="/assets/images/default-avatar.png" class="rounded-circle wd-100" alt="">
+                                {{/if}}
+                                 <div class="mg-t-20">
+                                    <h5 class="tx-16 mb-1"><a href="">{{this.firstName}} {{this.lastName}}</a></h5>
+                                    <div class="tx-gray-500 small mb-2">{{this.email}}</div>
+                                    <div class="tx-12 tx-gray-500">
+                                       Company Inc. <br>
+                                       +0 (123) 456 7891
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="card-footer">
+                              <div class="tx-center">
+                                 <a href="javascript:void(0)">View Details</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {{/each}}
+                  </div>
+                  <!--/ Users  End-->
+                  <!--Modal Start-->
+                  <div class="modal fade effect-scale" id="addContactModal" tabindex="-1" role="dialog" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                           <div class="modal-body">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <i data-feather="x"></i>
+                              </button>
+                              <h5 class="tx-18 tx-sm-20 mg-b-30">Add New Contact</h5>
+                              <p class="tx-13 mg-b-30">You can add more information than what you see here, such as address and birthday by clicking <span class="">Add More Fields</span> button below to bring up more options.</p>
+                              <div class="d-sm-flex">
+                                 <div class="mg-sm-r-30">
+                                    <div class="pos-relative d-inline-block mg-b-30">
+                                       <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-gray-700  tx-medium tx-48">A</span></div>
+                                       <a href="" class="contact-edit-photo"><span data-feather="edit-3"></span></a>
+                                    </div>
+                                 </div>
+                                 <!-- col -->
+                                 <div class="flex-fill">
+                                    <h6 class="mg-b-10">Personal Information</h6>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1"><span data-feather="user" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="First Name" aria-label="FirstName" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon2"><span data-feather="user" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Last Name" aria-label="LasttName" aria-describedby="basic-addon2">
+                                    </div>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon3"><span data-feather="at-sign" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon3">
+                                    </div>
+                                    <h6 class="mg-t-20 mg-b-10">Contact Information</h6>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon4"><span data-feather="phone" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Phone Number" aria-label="PhoneNumber" aria-describedby="basic-addon4">
+                                    </div>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon5"><span data-feather="mail" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Email Address" aria-label="EmailAddress" aria-describedby="basic-addon5">
+                                    </div>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon6"><span data-feather="home" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Company" aria-label="Company" aria-describedby="basic-addon6">
+                                    </div>
+                                    <div class="input-group mg-b-10">
+                                       <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon7"><span data-feather="calendar" class="wd-16"></span></span>
+                                       </div>
+                                       <input type="text" class="form-control" placeholder="Birthday" aria-label="Birthday" aria-describedby="basic-addon7">
+                                    </div>
+                                    <h6 class="mg-t-20 mg-b-10">Notes</h6>
+                                    <textarea class="form-control" rows="2" placeholder="Add notes" spellcheck="false"></textarea>
+                                 </div>
+                                 <!-- col -->
+                              </div>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0">Save Changes</button>
+                           </div>
+                           <!-- modal-footer -->
+                        </div>
+                        <!-- modal-content -->
+                     </div>
+                  </div>
+                  <!--/ Modal End-->
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

@@ -1,0 +1,88 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                    <!--================================-->
+                    <!-- Breadcrumb Start -->
+                    <!--================================-->
+                    <div class="pageheader pd-t-25 pd-b-15">
+                        <div class="d-flex justify-content-between">
+                            <div class="clearfix">
+                            <div class="pd-t-5 pd-b-5">
+                                <h1 class="pd-0 mg-0 tx-20 tx-dark">{{pageTitle}}</h1>
+                            </div>
+                            <div class="breadcrumb pd-0 mg-0">
+                                <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                                <a class="breadcrumb-item" href="/pages">Pages</a>
+                                <a class="breadcrumb-item" href="/pages/{{page.slug}}">{{page.name}}</a>
+                                <span class="breadcrumb-item active">Create Promotion</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Breadcrumb End -->
+                    {{#if errorContainer.system}}
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="alert alert-danger" role="alert">{{errorContainer.system}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if successMessage}}
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="alert alert-success" role="alert">{{successMessage}}</div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <!--================================-->
+                    <!-- Create Page Start -->
+                    <!--================================-->
+                    <div class="row row-xs clearfix">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="card mg-b-30">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="card-header-title tx-13 mb-0">Fill in the form</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" class="{{validationStatus}}" novalidate>
+                                        <input type="hidden" name="pageId" value="{{page._id}}">
+                                        <div class="mb-3">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title" name="title" value="{{title}}" placeholder="Title" required>
+                                            {{#if titleError}}<div class="invalid-feedback">{{titleError}}</div>{{/if}}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description">Description</label>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="3" placeholder="Description" required>{{description}}</textarea>
+                                            {{#if descriptionError}}<div class="invalid-feedback">{{descriptionError}}</div>{{/if}}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="expiry">Promotion Expiry Date</label>
+                                            <input type="text" class="form-control input-expiry-date" id="expiry" name="expiry" value="{{expiry}}" placeholder="YYYY-MM-DD" required>
+                                            {{#if expiryError}}<div class="invalid-feedback">{{expiryError}}</div>{{/if}}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tags">Tags</label>
+                                            <input type="text" class="form-control" id="tags" name="tags" value="{{tags}}" data-role="tagsinput" placeholder="Add a tag" required>
+                                            {{#if tagsError}}<div class="invalid-feedback">{{tagsError}}</div>{{/if}}
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <!--/ Create Page  End-->
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

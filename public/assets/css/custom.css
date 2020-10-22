@@ -1,0 +1,21 @@
+.bootstrap-tagsinput{
+    padding: 4px 6px;
+    margin: 0px;
+}
+
+.index-row{
+    width: 4%;
+}
+.dp-style{
+    border: 1px solid #efefef;
+}
+.custom-style{
+    display: inline-block;
+    width: auto;
+}
+.clickable {
+    cursor: pointer;
+}
+.break-word {
+    word-break: break-word;
+}

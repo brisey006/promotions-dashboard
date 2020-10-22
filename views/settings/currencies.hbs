@@ -1,0 +1,85 @@
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner">
+               <!-- Main Wrapper -->
+               <div id="main-wrapper">
+                  <!--================================-->
+                  <!-- Breadcrumb Start -->
+                  <!--================================-->
+                  <div class="pageheader pd-t-25 pd-b-15">
+                     <div class="d-flex justify-content-between">
+                        <div class="clearfix">
+                           <div class="pd-t-5 pd-b-5">
+                              <h1 class="pd-0 mg-0 tx-20 tx-dark">{{pageTitle}}</h1>
+                           </div>
+                           <div class="breadcrumb pd-0 mg-0">
+                              <a class="breadcrumb-item" href="/"><i class="icon ion-ios-home-outline"></i> Home</a>
+                              <a class="breadcrumb-item" href="/settings">Settings</a>
+                              <span class="breadcrumb-item active">Currencies</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--/ Breadcrumb End -->
+                  <!--================================-->
+                  <!-- Pages Start -->
+                  <!--================================-->
+                  <div class="d-flex flex-wrap justify-content-between mg-b-30">
+                     <div class="mg-t-20">
+                        <a href="/settings/currencies/add" class="btn btn-primary"><span data-feather="plus" class="wd-16 mr-2"></span>Add Currency</a>
+                     </div>
+                     <input type="text" class="form-control mg-t-20" placeholder="Search..." style="max-width: 200px;">
+                  </div>
+                  
+                  <div class="table-responsive">
+                        <table class="table table-separated">
+                           <thead>
+                              <tr>
+                                 <th>#</th>
+                                 <th>Currency</th>
+                                 <th>Acronym</th>
+                                 <th>Symbol</th>
+                                 <th class="text-right">Actions</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              {{#each data.docs}}
+                              <tr>
+                                 <th scope="row">{{this.position}}</th>
+                                 <td>{{this.name}}</td>
+                                 <td>{{acronym}}</td>
+                                 <td>{{symbol}}</td>
+                                 <td class="text-right table-actions">
+                                    <a class="table-action  mg-r-10" href="#delete-{{this._id}}" data-toggle="modal"><i class="fa fa-trash"></i></a>
+                                 </td>
+                              </tr>
+                              <!-- Modal -->
+                              <div class="modal fade" id="delete-{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="ModalComponents" aria-hidden="true">
+                                 <div class="modal-dialog" role="document">
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                             <h5 class="modal-title" id="ModalComponents">Delete Currency?</h5>
+                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">×</span>
+                                             </button>
+                                          </div>
+                                          <div class="modal-body">Are you sure you want to delete <b>{{this.name}}</b>?</div>
+                                          <div class="modal-footer">
+                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                             <a href="/settings/currencies/delete/{{acronym}}" class="btn btn-danger">Yes</a>
+                                          </div>
+                                       </div>
+                                 </div>
+                              </div>
+                              {{/each}}
+                           </tbody>
+                        </table>
+                        {{>pagination}}
+                     </div>
+                  <!--/ Pages  End-->
+                  
+               </div>
+               <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->

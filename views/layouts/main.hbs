@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="keyword" content="">
+      <meta name="author"  content=""/>
+      <!-- Page Title -->
+      <title>Promotions | {{pageTitle}}</title>
+      <!-- Plugin CSS -->
+      {{#each css}}
+      <link rel="stylesheet" href="{{this}}">
+      {{/each}}
+      <!-- Main CSS -->	  
+      <link type="text/css" rel="stylesheet" href="/assets/css/style.css"/>
+      <!-- Favicon -->	
+      <link rel="icon" href="/assets/images/small-logo.png" type="image/png">
+      <link id="avestaSkin" rel="stylesheet" href="/assets/css/skin/skin.light.css">
+   </head>
+   <body>
+      <!--================================-->
+      <!-- Page Container Start -->
+      <!--================================-->
+      <div class="page-container">
+          <!-- Page Sidebar Start -->
+      <!--================================-->
+      <div class="page-sidebar">
+        <div class="logo">
+          <a class="logo-img" href="/">
+            <img class="desktop-logo" src="/assets/images/logo.png" alt="">
+            <img class="small-logo" src="/assets/images/small-logo.png" alt />
+          </a>
+          <a id="sidebar-toggle-button-close">
+            <x-icon class="custom-class" size="20"></x-icon>
+          </a>
+        </div>
+        <!--================================-->
+        <!-- Sidebar Menu Start -->
+        <!--================================-->
+        <div v-if="userRoles != null && user != null" class="page-sidebar-inner">
+          <div class="page-sidebar-menu">
+            <ul class="accordion-menu">
+              <li class="mg-l-20-force mg-t-25-force menu-navigation">Reports</li>
+              <li>
+                <a href="/">
+                  <i data-feather="home"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="mg-l-20-force mg-t-25-force menu-navigation">Manage</li>
+              <li v-if="user.userType == userRoles.SUPER_USER">
+               <a href="/users">
+                  <i data-feather="users"></i>
+                  <span>Users</span>
+               </a>
+              </li>
+              <li>
+               <a href="/pages">
+                  <i data-feather="briefcase"></i>
+                  <span>Shop Pages</span>
+               </a>
+              </li>
+              <li>
+               <a href="/promotions">
+                  <i data-feather="layers"></i>
+                  <span>Promotions</span>
+                </a>
+              </li>
+              <li class="mg-l-20-force mg-t-25-force menu-navigation">Settings</li>
+              <li>
+               <a href="/settings/currencies">
+                  <i data-feather="dollar-sign"></i>
+                  <span>Currencies</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--/ Sidebar Menu End -->
+        <!--================================-->
+      </div>
+      <!--/ Page Sidebar End -->
+         <!--================================-->
+         <!-- Page Content Start -->
+         <!--================================-->
+         <div class="page-content">
+            <!--================================-->
+            <!-- Page Header Start -->
+            <!--================================-->
+            <div class="page-header">
+               <div class="search-form">
+                  <form action="#" method="GET">
+                     <div class="input-group">
+                        <input class="form-control search-input typeahead" name="search" placeholder="Type something..." type="text"/>
+                        <span class="input-group-btn"><span id="close-search"><i data-feather="x" class="wd-16"></i></span></span>
+                     </div>
+                  </form>
+               </div>
+               <nav class="navbar navbar-default">
+                  <!--================================-->
+                  <!-- Brand and Logo Start -->
+                  <!--================================-->
+                  <div class="navbar-header">
+                     <div class="navbar-brand">
+                        <ul class="list-inline">
+                           <!-- Mobile Toggle and Logo -->
+                           <li class="list-inline-item"><a class="hidden-md hidden-lg" href="#" id="sidebar-toggle-button"><i data-feather="menu" class="wd-20"></i></a></li>
+                           <!-- PC Toggle and Logo -->
+                           <li class="list-inline-item"><a class=" hidden-xs hidden-sm" href="#" id="collapsed-sidebar-toggle-button"><i data-feather="menu" class="wd-20"></i></a></li>
+                           <li class="list-inline-item mg-l-10"><a  href="#" id="search-button"><i data-feather="search" class="wd-20"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--/ Brand and Logo End -->
+                  <!--================================-->
+                  <!-- Header Right Start -->
+                  <!--================================-->
+                  <div class="header-right pull-right">
+                     <ul class="list-inline justify-content-end">
+                        <!--================================-->
+                        <!-- Profile Dropdown Start -->
+                        <!--================================-->
+                        <li class="list-inline-item dropdown">
+                           <a  href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           {{#if user.displayImage}}
+                           <img src="{{user.displayImage.thumbnail}}?rand={{random}}" class="img-fluid wd-30 ht-30 rounded-circle" alt="">
+                           {{else}}
+                           <img src="/assets/images/default-avatar.png" class="img-fluid wd-30 ht-30 rounded-circle" alt="">
+                           {{/if}}
+                           
+                           </a>
+                           <div class="dropdown-menu dropdown-menu-right dropdown-profile">
+                              <div class="user-profile-area">
+                                 <div class="user-profile-heading">
+                                    <div class="profile-thumbnail">
+                                       {{#if user.displayImage}}
+                                       <img src="{{user.displayImage.thumbnail}}?rand={{random}}" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                       {{else}}
+                                       <img src="/assets/images/default-avatar.png" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                       {{/if}}
+                                       
+                                    </div>
+                                    <div class="profile-text">
+                                       <h6>{{user.firstName}}</h6>
+                                    </div>
+                                 </div>
+                                 <a href="/my-profile" class="dropdown-item"><i data-feather="user" class="wd-16 mr-2"></i> My profile</a>
+                                 <a href="" class="dropdown-item"><i data-feather="settings" class="wd-16 mr-2"></i> Settings</a>
+                                 <a href="/logout" class="dropdown-item"><i data-feather="power" class="wd-16 mr-2"></i> Sign-out</a>
+                              </div>
+                           </div>
+                        </li>
+                        <!-- Profile Dropdown End -->
+                     </ul>
+                  </div>
+                  <!--/ Header Right End -->
+               </nav>
+            </div>
+            <!--/ Page Header End -->   
+            {{{body}}}
+            <!--================================-->
+            		
+         </div>
+         <!--/ Page Content End -->
+      </div>
+      <!--/ Page Container End -->
+      <!--================================-->
+      <!-- Scroll To Top Start-->
+      <!--================================-->	
+      <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+      <!--/ Scroll To Top End -->
+      <!--================================-->
+      
+      <!--================================-->
+      <!-- Footer Script -->
+      <!--================================-->
+      <script src="/assets/plugins/jquery/jquery.min.js"></script>
+      <script src="/assets/plugins/jquery-ui/jquery-ui.js"></script>
+      <script src="/assets/plugins/moment/moment.min.js"></script>
+      <script src="/assets/plugins/popper/popper.js"></script>
+      <script src="/assets/plugins/feather/feather.min.js"></script>
+      <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/assets/plugins/typeahead/typeahead.js"></script>
+      <script src="/assets/plugins/typeahead/typeahead-active.js"></script>
+      <script src="/assets/plugins/pace/pace.min.js"></script>
+      <script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+      <script src="/assets/plugins/highlight/highlight.min.js"></script>
+      <!-- Page Script -->
+      {{#each js}}
+      <script src="{{this}}"></script>
+      {{/each}}
+      <!-- Required Script -->
+      <script src="/assets/js/app.js"></script>
+      <script src="/assets/js/avesta.js"></script>
+      <!-- Javascript -->
+      
+   </body>
+</html>
